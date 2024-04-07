@@ -5,7 +5,6 @@ import { Trash } from 'lucide-react';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
-
 import { Button } from '@/components/ui/button';
 import { ConfirmModal } from '@/components/modals/confirm-modal';
 import { useConfettiStore } from '@/hooks/use-confetti-store';
@@ -45,9 +44,7 @@ export const Actions = ({ disabled, courseId, isPublished }: ActionsProps) => {
   const onDelete = async () => {
     try {
       setIsLoading(true);
-
       await axios.delete(`/api/courses/${courseId}`);
-
       toast.success('Course deleted');
       router.refresh();
       router.push(`/teacher/courses`);

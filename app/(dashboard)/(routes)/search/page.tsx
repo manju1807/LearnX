@@ -27,6 +27,7 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
       name: 'asc',
     },
   });
+  console.log(categories);
 
   const courses = await getCourses({
     userId,
