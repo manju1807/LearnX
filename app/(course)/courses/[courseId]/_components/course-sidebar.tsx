@@ -4,8 +4,8 @@ import { redirect } from 'next/navigation';
 
 import { db } from '@/lib/db';
 import { CourseProgress } from '@/components/course-progress';
-
 import { CourseSidebarItem } from './course-sidebar-item';
+import Redirect from './Redirect';
 
 interface CourseSidebarProps {
   course: Course & {
@@ -25,7 +25,6 @@ export const CourseSidebar = async ({
   if (!userId) {
     return redirect('/');
   }
-
   const purchase = await db.purchase.findUnique({
     where: {
       userId_courseId: {
@@ -38,7 +37,10 @@ export const CourseSidebar = async ({
   return (
     <div className='h-full border-r flex flex-col overflow-y-auto shadow-sm'>
       <div className='p-8 flex flex-col border-b'>
-        <h1 className='font-semibold'>{course.title}</h1>
+        <div>
+          <Redirect />
+          <h1 className='font-semibold'>{course.title}</h1>
+        </div>
         {purchase && (
           <div className='mt-10'>
             <CourseProgress variant='success' value={progressCount} />
