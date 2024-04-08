@@ -53,7 +53,6 @@ export async function POST(
         },
       },
     ];
-
     let stripeCustomer = await db.stripeCustomer.findUnique({
       where: {
         userId: user.id,
@@ -63,7 +62,9 @@ export async function POST(
       },
     });
 
+    console.log('stripe customer is found:', stripeCustomer);
     if (!stripeCustomer) {
+      console.log(`attempt to create customer!`);
       const customer = await stripe.customers.create({
         email: user.emailAddresses[0].emailAddress,
       });
