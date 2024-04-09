@@ -1,5 +1,4 @@
-import { Category, Course } from '@prisma/client';
-
+import { Category, Course, Notes, NotesCategory } from '@prisma/client';
 import { getProgress } from '@/actions/get-progress';
 import { db } from '@/lib/db';
 
@@ -13,6 +12,12 @@ type GetCourses = {
   userId: string;
   title?: string;
   categoryId?: string;
+};
+
+type GetNotes = {
+  userId: string;
+  title?: string;
+  notesCategoryId?: string;
 };
 
 export const getCourses = async ({
@@ -72,6 +77,32 @@ export const getCourses = async ({
     return coursesWithProgress;
   } catch (error) {
     console.log('[GET_COURSES]', error);
+    return [];
+  }
+};
+
+export const getNotes = async ({
+  userId,
+  title,
+  notesCategoryId,
+}: GetNotes): Promise<Notes[]> => {
+  try {
+    const notes = await db.notes.findMany({
+      where: {
+        userId,
+        title,
+        notesCategoryId,
+      },
+      include: {
+        notesCategory: true,
+      },
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
+    return notes;
+  } catch (error) {
+    console.log('[GET_notes]', error);
     return [];
   }
 };

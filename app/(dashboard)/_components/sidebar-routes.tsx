@@ -1,45 +1,54 @@
-"use client";
+'use client';
 
-import { BarChart, Compass, Layout, List } from "lucide-react";
-import { usePathname } from "next/navigation";
-
-import { SidebarItem } from "./sidebar-item";
+import { BarChart, Compass, Layout, List, Book } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { SidebarItem } from './sidebar-item';
 
 const guestRoutes = [
   {
     icon: Layout,
-    label: "Dashboard",
-    href: "/",
+    label: 'Dashboard',
+    href: '/',
   },
   {
     icon: Compass,
-    label: "Browse",
-    href: "/search",
+    label: 'Browse',
+    href: '/search',
+  },
+  {
+    icon: Book,
+    label: 'Notes',
+    href: '/Notes',
   },
 ];
 
 const teacherRoutes = [
   {
     icon: List,
-    label: "Courses",
-    href: "/teacher/courses",
+    label: 'Courses',
+    href: '/teacher/courses',
   },
   {
     icon: BarChart,
-    label: "Analytics",
-    href: "/teacher/analytics",
+    label: 'Analytics',
+    href: '/teacher/analytics',
   },
-]
+  {
+    icon: Book,
+    label: 'Notes',
+    href: '/teacher/notes',
+  },
+];
 
 export const SidebarRoutes = () => {
   const pathname = usePathname();
 
-  const isTeacherPage = pathname?.includes("/teacher");
+  const isTeacherPage = pathname?.includes('/teacher');
 
   const routes = isTeacherPage ? teacherRoutes : guestRoutes;
 
   return (
-    <div className="flex flex-col w-full">
+    <div className='flex flex-col w-full'>
       {routes.map((route) => (
         <SidebarItem
           key={route.href}
@@ -49,5 +58,5 @@ export const SidebarRoutes = () => {
         />
       ))}
     </div>
-  )
-}
+  );
+};

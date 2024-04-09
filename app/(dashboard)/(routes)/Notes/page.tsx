@@ -1,35 +1,34 @@
+import React from 'react';
 import { auth } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
-
 import { db } from '@/lib/db';
+import { getNotes } from '@/actions/get-courses';
+import { NotesList } from './_components/notesList';
+import { NotesCategories } from './_components/categories';
 import { SearchInput } from '@/components/search-input';
-import { getCourses } from '@/actions/get-courses';
-import { CoursesList } from '@/components/courses-list';
-import { Categories } from './_components/categories';
 
-interface SearchPageProps {
-  searchParams: {
+interface NotesPageProps {
+  notesParams: {
     title: string;
     categoryId: string;
   };
 }
 
-const SearchPage = async ({ searchParams }: SearchPageProps) => {
+const NotesPage = async ({ notesParams }: NotesPageProps) => {
   const { userId } = auth();
-
   if (!userId) {
     return redirect('/');
   }
 
-  const categories = await db.category.findMany({
+  const categories = await db.notesCategory.findMany({
     orderBy: {
       name: 'asc',
     },
   });
 
-  const courses = await getCourses({
+  const notes = await getNotes({
     userId,
-    ...searchParams,
+    ...notesParams,
   });
 
   return (
@@ -38,11 +37,11 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
         <SearchInput />
       </div>
       <div className='p-6 space-y-4'>
-        <Categories items={categories} />
-        <CoursesList items={courses} />
+        <NotesCategories items={categories} />
+        <NotesList items={notes} />
       </div>
     </>
   );
 };
 
-export default SearchPage;
+export default NotesPage;
