@@ -23,6 +23,11 @@ const NotesPage = async () => {
 
   return (
     <div className='p-6'>
+      <div className='pb-0 flex items-center'>
+        <h2 className='mr-2 text-xl font-medium tracking-tight'>
+          Upload Notes
+        </h2>
+      </div>
       <DataTable columns={columns} data={notes} />
     </div>
   );

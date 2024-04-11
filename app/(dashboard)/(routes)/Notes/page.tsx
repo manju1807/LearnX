@@ -36,6 +36,11 @@ const NotesPage = async ({ searchParams }: NotesPageProps) => {
         <NotesSearchInput />
       </div>
       <div className='p-6 space-y-4'>
+        <div className='pb-0 flex items-center'>
+          <h2 className='mr-2 text-xl font-medium tracking-tight'>
+            Download Notes
+          </h2>
+        </div>
         <NotesCategories items={categories} />
         <NotesList items={notes} />
       </div>
