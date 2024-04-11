@@ -15,7 +15,6 @@ type GetCourses = {
 };
 
 type GetNotes = {
-  userId: string;
   title?: string;
   notesCategoryId?: string;
 };
@@ -82,16 +81,15 @@ export const getCourses = async ({
 };
 
 export const getNotes = async ({
-  userId,
   title,
   notesCategoryId,
 }: GetNotes): Promise<Notes[]> => {
   try {
     const notes = await db.notes.findMany({
       where: {
-        userId,
         title,
         notesCategoryId,
+        isPublished: true,
       },
       include: {
         notesCategory: true,

@@ -5,16 +5,16 @@ import { db } from '@/lib/db';
 import { getNotes } from '@/actions/get-courses';
 import { NotesList } from './_components/notesList';
 import { NotesCategories } from './_components/categories';
-import { SearchInput } from '@/components/search-input';
+import { NotesSearchInput } from '../../../../components/SearchInput';
 
 interface NotesPageProps {
-  notesParams: {
+  searchParams: {
     title: string;
     categoryId: string;
   };
 }
 
-const NotesPage = async ({ notesParams }: NotesPageProps) => {
+const NotesPage = async ({ searchParams }: NotesPageProps) => {
   const { userId } = auth();
   if (!userId) {
     return redirect('/');
@@ -27,14 +27,13 @@ const NotesPage = async ({ notesParams }: NotesPageProps) => {
   });
 
   const notes = await getNotes({
-    userId,
-    ...notesParams,
+    ...searchParams,
   });
 
   return (
     <>
       <div className='px-6 pt-6 md:hidden md:mb-0 block'>
-        <SearchInput />
+        <NotesSearchInput />
       </div>
       <div className='p-6 space-y-4'>
         <NotesCategories items={categories} />

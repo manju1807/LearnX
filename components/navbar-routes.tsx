@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { isTeacher } from '@/lib/teacher';
 
 import { SearchInput } from './search-input';
+import { NotesSearchInput } from './SearchInput';
 
 export const NavbarRoutes = () => {
   const { userId } = useAuth();
@@ -17,12 +18,18 @@ export const NavbarRoutes = () => {
   const isTeacherPage = pathname?.startsWith('/teacher');
   const isCoursePage = pathname?.includes('/courses');
   const isSearchPage = pathname === '/search';
+  const isNotesPage = pathname === '/Notes';
 
   return (
     <>
       {isSearchPage && (
         <div className='hidden md:block'>
           <SearchInput />
+        </div>
+      )}
+      {isNotesPage && (
+        <div className='hidden md:block'>
+          <NotesSearchInput />
         </div>
       )}
       <div className='flex gap-x-2 ml-auto'>
