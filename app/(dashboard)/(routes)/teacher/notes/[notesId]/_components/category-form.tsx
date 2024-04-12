@@ -67,7 +67,6 @@ export const CategoryForm = ({
   });
 
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(`the values received: ${JSON.stringify(values)}`);
     try {
       await axios.patch(`/api/notes/${notesId}`, values);
       toast.success('notes updated');
