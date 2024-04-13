@@ -13,6 +13,7 @@ import {
 import { QuestionWithCategory } from '@/actions/get-questions';
 import toast from 'react-hot-toast';
 import MCQCounter from './MCQCounter';
+import { useConfettiStore } from '@/hooks/use-confetti-store';
 import axios from 'axios';
 
 interface Props {
@@ -28,6 +29,7 @@ interface UserAnswer {
 
 const MCQQuestions = (props: Props) => {
   const router = useRouter();
+  const confetti = useConfettiStore();
   const { questions } = props;
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [selectedChoice, setSelectedChoice] = useState<number>(-1);
@@ -55,9 +57,10 @@ const MCQQuestions = (props: Props) => {
       setSelectedChoice(-1);
     } else {
       SetEnded(true);
+      confetti.onOpen();
       setEndTime(Date.now());
     }
-  }, [currentQuestionIndex, shuffledQuestions]);
+  }, [confetti, currentQuestionIndex, shuffledQuestions.length]);
 
   const checkAnswer = useCallback(
     (selectedAnswerIndex: number) => {
@@ -143,7 +146,7 @@ const MCQQuestions = (props: Props) => {
       <CardContent>
         <CardHeader>
           <CardTitle className='text-center'>Quiz Completed!</CardTitle>
-          <CardDescription className='text-center'>
+          <CardDescription className='text-center flex flex-col'>
             Score: {score}/{shuffledQuestions.length}
             <span className='pt-6'>
               For More Detailed Analysis click Here!
