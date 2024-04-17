@@ -30,26 +30,20 @@ interface Props {
 }
 
 const formSchema = z.object({
-  categoryId: z.enum([
-    '32b3df5a-4ae7-467a-a349-b9a6cb1c4cd8',
-    '8aef4199-782f-4325-857c-7be5a385e0e9',
-  ]),
+  categoryId: z.union([z.string(), z.null()]),
 });
 
 const QuizCategory = ({ options }: Props) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      categoryId: '32b3df5a-4ae7-467a-a349-b9a6cb1c4cd8',
+      categoryId: '',
     },
   });
   const router = useRouter();
-  const handleSubmit = async (
-    values: z.infer<typeof formSchema>,
-    categoryId: string
-  ) => {
+  const handleSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      console.log(values);
+      const categoryId = values.categoryId || '';
       const res = await axios.post(`/api/quiz/${categoryId}`, values);
       toast.success('Test Created Successfully!');
       router.push(`/quiz/${res.data.id}/${res.data.categoryId}`);
@@ -64,9 +58,7 @@ const QuizCategory = ({ options }: Props) => {
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit((values) =>
-          handleSubmit(values, form.getValues().categoryId)
-        )}
+        onSubmit={form.handleSubmit(handleSubmit)}
         className='space-y-4 mt-4'
       >
         <FormField

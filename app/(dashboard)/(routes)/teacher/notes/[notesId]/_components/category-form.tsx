@@ -35,15 +35,7 @@ interface CategoryFormProps {
 }
 
 const formSchema = z.object({
-  notesCategoryId: z.enum([
-    '0426ccad-b594-4b96-8d3a-e61222aa5c4d',
-    '09d2d84a-fc15-4bce-b7f4-30747c66d344',
-    '57281a6f-7a0f-48c3-9bd2-7f570156a065',
-    '7165d419-c0b0-45fe-b7d8-e710c8438ad4',
-    '9c7f47b6-8e0e-4b39-96a4-ef0b9ce10d01',
-    'a05512ae-d34b-48e2-9652-0cd46ff1d2a7',
-    'dbccd809-073e-415f-a409-851f1c326d01',
-  ]),
+  notesCategoryId: z.union([z.string(), z.null()]),
 });
 
 export const CategoryForm = ({

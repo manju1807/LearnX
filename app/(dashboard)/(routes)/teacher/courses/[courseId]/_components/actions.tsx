@@ -31,6 +31,9 @@ export const Actions = ({ disabled, courseId, isPublished }: ActionsProps) => {
         await axios.patch(`/api/courses/${courseId}/publish`);
         toast.success('Course published');
         confetti.onOpen();
+        setTimeout(() => {
+          router.push('/teacher/courses/');
+        }, 3000);
       }
 
       router.refresh();
