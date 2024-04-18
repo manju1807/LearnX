@@ -24,7 +24,7 @@ const TestPage = async ({
   }
 
   const Category =
-    categoryId === '8aef4199-782f-4325-857c-7be5a385e0e9'
+    categoryId === '711bdefb-23ad-4545-b4d8-52f88f949006'
       ? 'JavaScript'
       : 'Data Structures & Algorithms';
   return (

@@ -28,26 +28,26 @@ interface ComboboxProps {
 
 const categories: Category[] = [
   {
-    id: '8707428a-9b36-426e-b422-bed69ff30ede',
+    id: '82d67d17-a996-4b67-a583-6500aaf31cb4',
     name: 'Data Structures & Algorithm',
   },
-  { id: 'cdb911ee-f142-4271-aa7f-07b7fa07aa39', name: 'Django' },
+  { id: '7e645c55-6af1-4410-b17d-605d83404dfe', name: 'Django' },
   {
-    id: '3a6ea5c1-993c-4b72-b78a-1927e5f67217',
+    id: 'd761fa52-5379-4b97-832e-911a40a7c8af',
     name: 'Full stack Development',
   },
-  { id: 'af0bcb06-b03f-4943-b402-118ee3a8fc13', name: 'Golang' },
-  { id: 'd9c73988-a7ee-4143-bab2-73c6f4f56507', name: 'HTML & CSS' },
-  { id: '0d4a5883-cfa5-4f58-a50c-322613899e6d', name: 'Java' },
-  { id: '5642daf9-09bb-4997-93ed-161f784a1310', name: 'Javascript' },
-  { id: 'fcebcfd2-04b0-48ae-8282-638c8038e3e9', name: 'Kotlin' },
-  { id: '4366da85-b4d6-4ca8-acb0-e81fadd58ee3', name: 'MERN Stack' },
-  { id: 'c958b9a7-9d99-4416-878f-b557237cd327', name: 'NextJS' },
-  { id: '0687101e-5c28-44ba-b5ec-8b1729ad4ba3', name: 'Nodejs' },
-  { id: '921dc0fd-2cd7-4e45-8a4f-efe8c8c095bb', name: 'Programming' },
-  { id: 'c9c78b06-2a20-4bf5-a622-80d0acca5be0', name: 'Python' },
-  { id: '5e4b329b-116e-4cf4-8386-8f5155a10ed5', name: 'ReactJS' },
-  { id: '757cf854-da89-4a4c-a1a5-6fa4becc8082', name: 'Web development' },
+  { id: '35934034-f6b5-43ec-aaeb-b1d8d1fe9acf', name: 'Golang' },
+  { id: '1de1481f-33dd-4a32-a8a9-9c6dff320908', name: 'HTML & CSS' },
+  { id: 'fffe03cf-ac4b-42a8-9dcc-564157bbcf4b', name: 'Java' },
+  { id: '0bed575f-764e-4db6-be73-ed7b60adc03c', name: 'Javascript' },
+  { id: '9bbbebf4-95e7-46c5-8ef9-7265a69c1270', name: 'Kotlin' },
+  { id: 'b99a770d-ce12-4d86-a371-f5cb670718d7', name: 'MERN Stack' },
+  { id: 'dbeba8e4-8578-40c2-91a1-4858565182b8', name: 'NextJS' },
+  { id: 'daba9190-0f2d-4a20-b21f-bbbd4654dc98', name: 'Nodejs' },
+  { id: 'c4494169-18b0-455d-be2a-b47a463bc7a2', name: 'Programming' },
+  { id: 'b962f074-d08f-4ba2-8f71-4e776b0599ea', name: 'Python' },
+  { id: '3e65548b-15ae-4226-9b75-2be05ff60467', name: 'ReactJS' },
+  { id: 'f0eb394a-1b33-42eb-b20e-dd2d8511820d', name: 'Web development' },
 ];
 
 export function Combobox({ value, onChange }: ComboboxProps) {

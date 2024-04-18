@@ -67,7 +67,7 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ data }) => {
         const categoryId = row.original.categoryId;
         return (
           <span>
-            {categoryId === '32b3df5a-4ae7-467a-a349-b9a6cb1c4cd8'
+            {categoryId === '80c6e42b-5e81-4660-8eeb-3d939fa5a20e'
               ? 'Data Structures & Algorithms'
               : 'JavaScript'}
           </span>
