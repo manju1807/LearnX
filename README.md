@@ -25,7 +25,7 @@
 * 🎥 **Mux** - Video processing and storage
 * 📤 **UploadThing** - File uploading solution
 * 💳 **Stripe** - Payment processing
-* 🗃️ **MongoDB** - Database
+* 🗃️ **Postgres** - Database
 * 🔌 **Prisma** - ORM for database management
 * 🚀 **RestAPI** - For efficient data querying and mutation
 
