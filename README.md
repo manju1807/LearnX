@@ -66,6 +66,16 @@ You should now be able to access LearnX at `http://localhost:3000`.
 
 ### Screenshots
 
+![Screenshot 1](https://github.com/user-attachments/assets/8ac0d324-c8cf-4995-bb13-b3a4e30e59a7)
+![Screenshot 2](https://github.com/user-attachments/assets/41e4e078-75d4-41c0-aec9-cc7595e936f3)
+![Screenshot 3](https://github.com/user-attachments/assets/e80cdae5-92ce-4f9e-b7f2-66d1048498cd)
+![Screenshot 4](https://github.com/user-attachments/assets/6665819b-e719-4cb5-aca0-bb49e5bb362e)
+![Screenshot 5](https://github.com/user-attachments/assets/db9d9d5f-8a51-46be-96c7-8c5c9c91aa7f)
+![Screenshot 6](https://github.com/user-attachments/assets/d04e4d30-f8ac-4f56-a0bd-ee11d881aa95)
+![Screenshot 7](https://github.com/user-attachments/assets/9c44d342-3070-43d9-9a40-62ce5a349134)
+![Screenshot 8](https://github.com/user-attachments/assets/bf91fc88-132c-4e75-9e58-4d15b52754f1)
+![Screenshot 9](https://github.com/user-attachments/assets/19a8064c-c5d4-467d-9551-7316e6cfa68e)
+![Screenshot 10](https://github.com/user-attachments/assets/2c0f0311-6b31-4aa2-941b-5bb1dcf9bc98)
 
 ---
 
